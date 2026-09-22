@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OBEF Management System – Demo</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div id="login" class="login">
+  <div class="login-box">
+    <div style="font-weight:900;color:#0877e8;font-size:18px">OBEF • DEMONSTRATION</div>
+    <h1>OBEF Management System</h1>
+    <p>Outcome-Based Evaluation Framework (Version 11.5)</p>
+    <input id="email" value="senior.demo@university.ae" aria-label="Email">
+    <input type="password" value="demo123" aria-label="Password">
+    <button class="btn btn-primary" onclick="enterDemo()">Enter Demo System</button>
+    <p style="font-size:12px;text-align:center">Prototype only • No server or confidential institutional data</p>
+  </div>
+</div>
+
+<div class="app">
+<aside class="sidebar">
+  <div class="logo"><div class="logo-mark">OBEF<span>+</span></div></div>
+  <nav class="nav" id="nav">
+    <a class="active" data-page="dashboard"><i>⌂</i><span>Dashboard</span></a>
+    <a data-page="framework"><i>▤</i><span>OBEF Framework</span></a>
+    <a data-page="institutional"><i>▥</i><span>Institutional KPIs</span></a>
+    <a data-page="program"><i>🎓</i><span>Program KPIs</span></a>
+    <a data-page="schools"><i>♙</i><span>Schools & Programs</span></a>
+    <a data-page="entry"><i>✎</i><span>Data Entry</span></a>
+    <a data-page="evidence"><i>▧</i><span>Evidence Repository</span></a>
+    <a data-page="assessment"><i>☑</i><span>Assessment Review (2.1)</span></a>
+    <a data-page="actions"><i>◎</i><span>Improvement Actions</span></a>
+    <a data-page="closing"><i>↻</i><span>Closing the Loop</span></a>
+    <a data-page="future"><i>↗</i><span>Future Readiness</span></a>
+    <a data-page="reports"><i>▥</i><span>Reports</span></a>
+    <a data-page="users"><i>♙</i><span>User Management</span></a>
+    <a data-page="audit"><i>▤</i><span>Audit Log</span></a>
+  </nav>
+  <div class="side-foot">Version 2.0 Demo<br>Education For A Better Tomorrow</div>
+</aside>
+
+<header class="topbar">
+  <div class="brand-top"><h1>OBEF Management System</h1><small>Outcome-Based Evaluation Framework (Version 11.5)</small></div>
+  <div class="top-actions"><select class="year"><option>2026-2027</option><option>2025-2026</option></select><span>🔔</span><div class="avatar">AU</div><div class="user-name"><b>Admin User</b><br><small class="muted">Administrator</small></div><button class="btn btn-light" onclick="logout()">Logout</button></div>
+</header>
+
+<main class="content">
+<section class="page active" id="dashboard">
+ <div class="page-head"><div><h2>Executive Dashboard</h2><p>Overall performance across 6 OBEF pillars and 24 KPIs</p></div><span class="badge-demo">DEMO DATA</span></div>
+ <div class="grid4">
+  <div class="card metric"><h3>Overall OBEF Score</h3><div class="flex"><div class="ring"><b>78%</b></div><div><div class="scorebox">3.90 / 5.00</div><b style="color:var(--green)">▲ +7%</b><div class="muted">vs. last year</div></div></div></div>
+  <div class="card metric"><h3>Total KPIs</h3><div class="flex"><div class="big">24</div><div><div>🟢 <b>16</b> Achieved</div><div>🟡 <b>5</b> Partially Achieved</div><div>🔴 <b>2</b> Not Achieved</div><div>⚪ <b>1</b> Not Reported</div></div></div></div>
+  <div class="card metric"><h3>Institutional KPIs</h3><div class="big">24</div><div class="muted">Applicable to institution</div><div class="notice" style="margin-top:12px">6 Pillars →</div></div>
+  <div class="card metric"><h3>Program KPIs</h3><div class="big">22</div><div class="muted">Applicable to programs</div><div class="notice" style="margin-top:12px;background:#f4eaff;border-color:#8b4bd9">Across all programs →</div></div>
+ </div>
+ <div style="height:14px"></div>
+ <div class="grid2">
+  <div class="card"><h3>Pillar Performance</h3><div id="pillarTable"></div></div>
+  <div class="card"><h3>OBEF Score Trend</h3><div class="chart"><div class="col"><div class="stick" style="height:62%"></div><small>22-23<br>3.10</small></div><div class="col"><div class="stick" style="height:68%"></div><small>23-24<br>3.40</small></div><div class="col"><div class="stick" style="height:73%"></div><small>24-25<br>3.65</small></div><div class="col"><div class="stick" style="height:76%"></div><small>25-26<br>3.80</small></div><div class="col"><div class="stick" style="height:78%"></div><small>26-27<br>3.90</small></div></div></div>
+ </div>
+ <div style="height:14px"></div>
+ <div class="grid2">
+  <div class="card"><h3>KPIs Requiring Attention</h3><table><thead><tr><th>Code</th><th>KPI</th><th>Status</th><th>Score</th></tr></thead><tbody><tr><td>3.3</td><td>Joint Industry Courses</td><td><span class="status red">Not Achieved</span></td><td>2.10</td></tr><tr><td>2.2</td><td>Retention Rate (FYR)</td><td><span class="status amber">Partial</span></td><td>3.00</td></tr><tr><td>3.4</td><td>Industry Contributions</td><td><span class="status amber">Partial</span></td><td>3.10</td></tr></tbody></table></div>
+  <div class="card"><h3>Quick Actions</h3><div class="quick"><button class="q1" onclick="go('entry')"><b>Enter KPI Data</b><small>Institution / Program</small></button><button class="q2" onclick="go('evidence')"><b>Upload Evidence</b><small>Documents & Links</small></button><button class="q3" onclick="go('assessment')"><b>Assessment Review</b><small>KPI 2.1</small></button><button class="q4" onclick="go('actions')"><b>Manage Actions</b><small>Improvement Plans</small></button><button class="q5" onclick="go('reports')"><b>Generate Reports</b><small>Print / CSV</small></button><button class="q6" onclick="go('users')"><b>System Settings</b><small>Users & Configuration</small></button></div></div>
+ </div>
+</section>
+
+<section class="page" id="framework"><div class="page-head"><div><h2>OBEF Framework</h2><p>Official master structure: 6 pillars and 24 institutional KPIs</p></div></div><div class="notice">Program level contains 22 applicable KPIs; Research KPIs 4.5 and 4.6 are institution-only.</div><div class="card"><div class="kpi-search"><input id="kpiSearch" placeholder="Search KPI code, name or pillar..." oninput="renderKpis()"></div><div id="kpiMaster"></div></div></section>
+<section class="page" id="institutional"><div class="page-head"><div><h2>Institutional KPIs</h2><p>Institution-wide OBEF performance register</p></div></div><div class="card" id="instTable"></div></section>
+<section class="page" id="program"><div class="page-head"><div><h2>Program KPIs</h2><p>Program-level OBEF monitoring across 22 applicable KPIs</p></div></div><div class="card"><div class="field" style="max-width:420px;margin-bottom:14px"><label>Program</label><select><option>BSc Computer Science</option><option>BBA</option><option>MBA</option><option>BA Psychology</option></select></div><div id="progTable"></div></div></section>
+<section class="page" id="schools"><div class="page-head"><div><h2>Schools & Programs</h2><p>Demo organizational structure</p></div><button class="btn btn-primary" onclick="demoAlert('Add School / Program')">+ Add Program</button></div><div class="card"><table><thead><tr><th>School</th><th>Program Code</th><th>Program</th><th>Level</th><th>Status</th></tr></thead><tbody><tr><td>School of Engineering, Applied Science & Technology</td><td>BCS</td><td>BSc Computer Science</td><td>Bachelor</td><td><span class="status green">Active</span></td></tr><tr><td>School of Management</td><td>BBA</td><td>Bachelor of Business Administration</td><td>Bachelor</td><td><span class="status green">Active</span></td></tr><tr><td>School of Management</td><td>MBA</td><td>Master of Business Administration</td><td>Master</td><td><span class="status green">Active</span></td></tr><tr><td>School of Psychology</td><td>BAP</td><td>BA Psychology</td><td>Bachelor</td><td><span class="status green">Active</span></td></tr></tbody></table></div></section>
+
+<section class="page" id="entry"><div class="page-head"><div><h2>KPI Data Entry</h2><p>Interactive browser-based demonstration; saved locally in this browser</p></div></div><div class="card"><div class="form-grid"><div class="field"><label>Reporting Period</label><select><option>2026-2027</option></select></div><div class="field"><label>Level</label><select id="entryLevel"><option>Institution</option><option>Program</option></select></div><div class="field"><label>KPI</label><select id="entryKpi"></select></div><div class="field"><label>Actual Value</label><input id="actual" type="number" step="0.01" placeholder="Enter result"></div><div class="field"><label>Numerator (optional)</label><input id="num" type="number"></div><div class="field"><label>Denominator (optional)</label><input id="den" type="number"></div><div class="field wide"><label>Notes / Calculation Basis</label><textarea id="entryNotes" placeholder="Describe source, calculation or exclusions"></textarea></div></div><div style="margin-top:12px"><button class="btn btn-primary" onclick="saveResult()">Save Demo Result</button></div></div><div style="height:14px"></div><div class="card"><h3>Saved Demo Results</h3><div id="savedResults"></div></div></section>
+
+<section class="page" id="evidence"><div class="page-head"><div><h2>Evidence Repository</h2><p>Demonstration register for KPI supporting evidence</p></div><button class="btn btn-primary" onclick="openEvidence()">+ Add Evidence</button></div><div class="notice">GitHub Pages cannot securely store uploaded institutional files. This prototype records evidence metadata/file names only in your browser.</div><div class="card" id="evidenceTable"></div></section>
+<section class="page" id="assessment"><div class="page-head"><div><h2>Assessment Quality Review – KPI 2.1</h2><p>Weighted external assessment-quality review</p></div></div><div class="grid2"><div class="card"><div class="form-grid"><div class="field"><label>Course Code</label><input id="course" value="BUS 301"></div><div class="field"><label>Assessment</label><input id="assessName" value="Final Examination"></div><div class="field"><label>Alignment with Learning Outcomes (45%)</label><input id="s1" type="number" min="1" max="5" value="4.5"></div><div class="field"><label>Assessment Design (25%)</label><input id="s2" type="number" min="1" max="5" value="4"></div><div class="field"><label>Grading Criteria / Distribution (20%)</label><input id="s3" type="number" min="1" max="5" value="4"></div><div class="field"><label>Feedback & Process Efficiency (10%)</label><input id="s4" type="number" min="1" max="5" value="3.5"></div></div><button class="btn btn-primary" style="margin-top:12px" onclick="calcAssessment()">Calculate Review</button></div><div class="card"><h3>Review Result</h3><div class="big" id="reviewScore">—</div><p class="muted">Weighted score out of 5</p><div class="notice" id="reviewPct">Enter scores and calculate.</div></div></div></section>
+<section class="page" id="actions"><div class="page-head"><div><h2>Improvement Actions</h2><p>Track findings, owners, due dates and completion evidence</p></div><button class="btn btn-primary" onclick="addAction()">+ New Action</button></div><div class="card" id="actionTable"></div></section>
+<section class="page" id="closing"><div class="page-head"><div><h2>Closing the Loop</h2><p>Document completed improvements and demonstrated impact</p></div></div><div class="card"><table><thead><tr><th>KPI</th><th>Improvement</th><th>Completion Evidence</th><th>Outcome / Impact</th><th>Status</th></tr></thead><tbody><tr><td>2.2 Retention Rate</td><td>Early-alert advising intervention</td><td>Advising completion report</td><td>Retention increased in next review cycle</td><td><span class="status green">Closed</span></td></tr><tr><td>3.3 Joint Industry Courses</td><td>Industry co-design workshop</td><td>Pending</td><td>To be evaluated</td><td><span class="status amber">In Progress</span></td></tr></tbody></table></div></section>
+<section class="page" id="future"><div class="page-head"><div><h2>Future Readiness</h2><p>Standalone assessment – excluded from the OBEF score</p></div></div><div class="grid2"><div class="card"><div class="form-grid"><div class="field"><label>Future Skills Alignment (%)</label><input id="fs" type="number" value="92"></div><div class="field"><label>AI Program Design (%) – 20%</label><input id="ai1" type="number" value="85"></div><div class="field"><label>AI Teaching & Learning (%) – 30%</label><input id="ai2" type="number" value="82"></div><div class="field"><label>AI Assessment & Analysis (%) – 30%</label><input id="ai3" type="number" value="78"></div><div class="field"><label>Faculty AI Readiness (%) – 20%</label><input id="ai4" type="number" value="88"></div></div><button class="btn btn-primary" style="margin-top:12px" onclick="calcFuture()">Calculate Demo View</button></div><div class="card"><h3>Future Readiness Management View</h3><div class="big" id="futureScore">—</div><div class="notice" id="futureLabel">Future Readiness is reported separately from OBEF.</div></div></div></section>
+<section class="page" id="reports"><div class="page-head"><div><h2>Management Reports</h2><p>Demo reporting and export</p></div><div class="actions"><button class="btn btn-primary" onclick="window.print()">Print / Save PDF</button><button class="btn btn-green" onclick="exportCSV()">Export CSV</button></div></div><div class="card"><h3>Institutional KPI Summary</h3><div id="reportTable"></div></div></section>
+<section class="page" id="users"><div class="page-head"><div><h2>User Management</h2><p>Prototype role-based access register</p></div><button class="btn btn-primary" onclick="demoAlert('Add User')">+ Add User</button></div><div class="card"><table><thead><tr><th>Name</th><th>Role</th><th>Scope</th><th>Status</th></tr></thead><tbody><tr><td>Admin User</td><td>Administrator</td><td>Institution</td><td><span class="status green">Active</span></td></tr><tr><td>QA Officer</td><td>IRP / QA</td><td>Institution</td><td><span class="status green">Active</span></td></tr><tr><td>Program Coordinator</td><td>Coordinator</td><td>BSc Computer Science</td><td><span class="status green">Active</span></td></tr></tbody></table></div></section>
+<section class="page" id="audit"><div class="page-head"><div><h2>Audit Log</h2><p>Demonstration activity history</p></div></div><div class="card"><table><thead><tr><th>Date</th><th>User</th><th>Action</th><th>Module</th></tr></thead><tbody id="auditRows"></tbody></table></div></section>
+<div class="footer">OBEF Management System • GitHub Pages Demonstration v2.0 • Based on MoHESR OBEF University Guide Version 11.5 (23 March 2026) • Sample data for demonstration only</div>
+</main>
+</div>
+
+<div id="evidenceModal" class="modal hidden"><div class="modal-box"><h3>Add Evidence – Demo</h3><div class="form-grid"><div class="field"><label>KPI</label><select id="evKpi"></select></div><div class="field"><label>Evidence Type</label><select id="evType"><option>Report</option><option>Survey</option><option>Accreditation Evidence</option><option>Data Extract</option><option>Meeting / Approval Record</option></select></div><div class="field wide"><label>Evidence Title</label><input id="evTitle" placeholder="e.g. Graduate Destination Survey 2026"></div><div class="field wide"><label>File name / URL</label><input id="evFile" placeholder="e.g. GDS_2026.pdf"></div></div><div class="actions" style="margin-top:14px"><button class="btn btn-primary" onclick="saveEvidence()">Save</button><button class="btn btn-light" onclick="closeEvidence()">Cancel</button></div></div></div>
+
+<script src="assets/data.js"></script><script src="assets/app.js"></script>
+</body></html>
